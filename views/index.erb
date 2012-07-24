@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Noter</title>
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css" />
+    <%= include_gon %>
+  </head>
+  <body>
+    <div class="toolbar">
+      <span class="new btn btn-primary">
+        <div class="icon-white icon-pencil"></div>
+      </span>
+      
+      <span class="delete btn btn-danger">
+        <div class="icon-white icon-trash"></div>
+      </span>
+        
+        <div class="dropbox">
+            <% if !session[:dropbox_session] %>
+                <a href="/authorize" class="btn btn-success">Connect to Dropbox</a>
+              <% else %>
+                <a href="deauthorize" class="btn btn-danger">Disconnect from Dropbox</a>
+            <% end %>
+        </div>
+
+    </div>
+
+
+    <ul class="notes"></ul>
+
+    <div class="canvas">
+        <div class="welcome-message">
+          Start by creating a note.
+            <br />
+            <br />
+            OR
+            <br />
+            <br />
+            Click 'Connect to Dropbox' to sync your notes with dropbox.
+        </div>
+    </div>
+
+    <div class="links-modal hide">
+      <div class="modal-body">
+        <p></p>
+      </div>
+    </div>
+
+    <div class="help-modal hide">
+      <div class="modal-header">
+        <h3>Keyboard Shortcuts</h3>
+      </div>
+      <div class="modal-body">
+        <p>New Note - alt + n</p>
+      </div>
+      <div class="modal-footer">
+        Type alt + h to close this dialog.
+      </div>
+    </div>
+    <script type="text/javascript" charset="utf-8" src="javascripts/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="javascripts/underscore.js"></script>
+    <script type="text/javascript" charset="utf-8" src="javascripts/jStorage.js"></script>
+    <script type="text/javascript" charset="utf-8" src="javascripts/scrollpane.js"></script>
+    <script type="text/javascript" charset="utf-8" src="javascripts/kibo.js"></script>
+    <script type="text/javascript" charset="utf-8" src="javascripts/bootstrap.js"></script>
+    <script type="text/javascript" charset="utf-8" src="javascripts/script.js"></script>
+  </body>
+</html>

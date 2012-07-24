@@ -1,0 +1,28 @@
+768,snippets,ContentInstance.find(:all@('_')@ :order => 'id desc'@('_')@ :limit => 5).each {<`_}---item<`_}--- item.solr_index}; ContentInstance.solr_connection.commit|682,bathroom,tub - $140
+http://www.lowes.com/pd_255879-74269-255879.0_4294737274__?productId=3309854&Ns=p_product_price<`_}---0
+
+shower trim kit - 165
+http://www.lowes.com/ProductDisplay?partNumber=237438-20602-T10275-4-BN&langId=-1&storeId=10151&productId=1170719&catalogId=10051&cmRelshp=req&rel=nofollow&cId=PDIO1
+
+paint - $25 (probably two)
+http://www.lowes.com/pd_73194-4-007.0073194.007_4294729373__?productId=3086089&Ns=p_product_qty_sales_dollar<`_}---1
+
+bathroom cabinet - $100
+http://www.lowes.com/pd_28654-444-TT188_4294737163__?productId=3247772&Ns=p_product_qty_sales_dollar<`_}---1&pl=1&currentURL=%3FNs%3Dp_product_qty_sales_dollar%7C1&facetInfo=
+
+|2,want,glove
+http://www.mizunousa.com/baseball/products/mizuno-classic-pro-soft-gcp79s-outfielder-glove
+
+bag
+http://www.mizunousa.com/baseball/products/mizuno-equipment-g3-wheel-bag
+
+drill
+http://www.cpomilwaukee.com/factory-reconditioned-milwaukee-2601-82-18v-cordless-m18-lithium-ion-compact-driver-drill/milr2601-82@('_')@default@('_')@pd.html?ref=froogle2601-82&origin=%7Badtype%7D&zmam=31282435&zmas=47&zmac=43&zmap=2601-82
+
+t shirts
+http://store.dcshoes.com/product/index.jsp?productId=12610436
+http://store.dcshoes.com/product/index.jsp?productId=12610437
+http://store.dcshoes.com/product/index.jsp?productId=12628735
+http://store.dcshoes.com/product/index.jsp?productId=12628735|236,camile music,new linkin park
+neon trees
+payphone
