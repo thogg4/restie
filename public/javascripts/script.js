@@ -10,11 +10,14 @@ $(function() {
 		$(".notes li:first").addClass("selected");
 	}
 
-  if (window.gon.dropboxInfo != "") {
-    loadDropboxInfo();
+  if (window.gon.bucket != "") {
+    loadBucket();
   }
 
-  dropboxTimeout();
+  if ($(".authorize a").hasClass("authorized")) {
+    console.log('authorized')
+    dbTimeout();
+  }
 
 });
 
@@ -216,39 +219,37 @@ function canvasHandler(note) {
 
 
 
-function loadDropboxInfo() {
-    noteArray = window.gon.dropboxInfo.split("|");
+function loadBucket() {
+    noteArray = window.gon.bucket.split("|");
     _.each(noteArray, function(n) {
         i = n.split(",");
-        
+
         //monkeys are commas
         i[1] = i[1].split("@('_')@").join(",");
         i[2] = i[2].split("@('_')@").join(",");
-        
-        console.log("hello");
-        console.log(i);
-        
+
+
         //mice are pipes
         i[1] = i[1].replace(/<`_}---/g, "|");
         i[2] = i[2].replace(/<`_}---/g, "|");
-        
+
     	$.jStorage.set('note-' + i[0], {
     		id: i[0],
     		subject: i[1],
     		body: i[2]
-    	}); 
+    	});
     });
-    
+
     key = _.first($.jStorage.index());
     first = $.jStorage.get(key);
-    
+
     refreshNotes(first.id);
     showNote(first.id);
 }
 
 
 
-function dropboxTimeout() {
+function dbTimeout() {
     setTimeout(function() {
         allNotes = []
         _.each($.jStorage.index(), function(key) {
@@ -257,23 +258,23 @@ function dropboxTimeout() {
             //commas are monkeys
             i[1] = i[1].replace(/,/g, "@('_')@");
             i[2] = i[2].replace(/,/g, "@('_')@");
-            
+
             //pipes are fish
             i[1] = i[1].replace(/(\|)/g, "<`_}---");
             i[3] = i[2].replace(/(\|)/g, "<`_}---");
-            
+
             allNotes.push(i);
         });
-        
+
         allNotes = allNotes.join("|");
-                
+
         $.ajax({
-            url: "/dropbox?data="+encodeURIComponent(allNotes),
+            url: "/db?data="+encodeURIComponent(allNotes),
             type: "POST"
         });
         window.unsavedChanges = false;
-        
-        dropboxTimeout();
+
+        dbTimeout();
     }, 5000)
 }
 

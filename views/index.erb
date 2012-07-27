@@ -16,11 +16,15 @@
         <div class="icon-white icon-trash"></div>
       </span>
         
-        <div class="dropbox">
-            <% if !session[:dropbox_session] %>
-                <a href="/authorize" class="btn btn-success">Connect to Dropbox</a>
+        <div class="authorize">
+          <div class="message"></div>
+            <% if !session[:pass] %>
+                <form class="form-inline" action="/authorize" method="post" accept-charset="utf-8">
+                  <input type="text" name="pass" placeholder="pass" />
+                  <input type="submit" value="Authorize" class="btn btn-success" />
+                </form>
               <% else %>
-                <a href="deauthorize" class="btn btn-danger">Disconnect from Dropbox</a>
+                <a href="deauthorize" class="btn btn-danger authorized">Deauthorize</a>
             <% end %>
         </div>
 
@@ -62,8 +66,9 @@
     <script type="text/javascript" charset="utf-8" src="javascripts/underscore.js"></script>
     <script type="text/javascript" charset="utf-8" src="javascripts/jStorage.js"></script>
     <script type="text/javascript" charset="utf-8" src="javascripts/scrollpane.js"></script>
+    <script type="text/javascript" charset="utf-8" src="javascripts/backbone.js"></script>
     <script type="text/javascript" charset="utf-8" src="javascripts/kibo.js"></script>
     <script type="text/javascript" charset="utf-8" src="javascripts/bootstrap.js"></script>
-    <script type="text/javascript" charset="utf-8" src="javascripts/script.js"></script>
+    <script type="text/javascript" charset="utf-8" src="javascripts/init.js"></script>
   </body>
 </html>
