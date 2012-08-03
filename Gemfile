@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'sinatra'
-gem 'gon-sinatra'
 
 # css
 gem 'sass'
